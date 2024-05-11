@@ -10,12 +10,15 @@ import java.util.List;
 import java.util.stream.IntStream;
 @Service
 public class UserServiceImpl implements UserService {
-    private static final List<User> users = new ArrayList<User>();
+    private static final List<User> users = new ArrayList<>();
 
 
     @Override
     public void registerUser(User request) {
         request.setStatus("online");
+        if (userExists(request.getEmail())) {
+            throw new UserExistException("User already exists");
+        }
         users.add(request);
     }
 
@@ -31,5 +34,25 @@ public class UserServiceImpl implements UserService {
         }
         connectedUser.setStatus("online");
         return connectedUser;
+    }
+
+    @Override
+    public void logout(String email) {
+        var userIndex = IntStream.range(0, users.size())
+                .filter(count-> users.get(count).getEmail().equals(email))
+                .findFirst()
+                .orElseThrow(()-> new UserExistException("user not found"));
+        users.get(userIndex).setStatus("offline");
+
+
+    }
+
+    @Override
+    public List<User> viewAllUsers() {
+        return users;
+    }
+    private boolean userExists(String email) {
+        return users.stream()
+                .anyMatch(user -> user.getEmail().equals(email));
     }
 }
