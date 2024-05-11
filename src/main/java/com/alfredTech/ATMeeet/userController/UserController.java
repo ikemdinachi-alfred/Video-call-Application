@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 @Slf4j
 public class UserController {
     private final UserService userService;
@@ -28,7 +28,7 @@ public class UserController {
         return userService.login(user);
     }
     @PostMapping("/logout")
-    public void logout(@RequestParam String email){
+    public void logout(@RequestParam("email") String email){
         userService.logout(email);
     }
     @GetMapping("/view_All")

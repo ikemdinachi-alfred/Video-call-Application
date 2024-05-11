@@ -1,6 +1,7 @@
 package com.alfredTech.ATMeeet.userServices;
 
 import com.alfredTech.ATMeeet.exceptions.UserExistException;
+import com.alfredTech.ATMeeet.exceptions.UserNotFoundException;
 import com.alfredTech.ATMeeet.exceptions.WrongDetailsException;
 import com.alfredTech.ATMeeet.user.User;
 import org.springframework.stereotype.Service;
@@ -40,8 +41,8 @@ public class UserServiceImpl implements UserService {
     public void logout(String email) {
         var userIndex = IntStream.range(0, users.size())
                 .filter(count-> users.get(count).getEmail().equals(email))
-                .findFirst()
-                .orElseThrow(()-> new UserExistException("user not found"));
+                .findAny()
+                .orElseThrow(()-> new UserNotFoundException("user not found"));
         users.get(userIndex).setStatus("offline");
 
 
