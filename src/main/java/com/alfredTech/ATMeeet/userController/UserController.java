@@ -28,8 +28,8 @@ public class UserController {
         return userService.login(user);
     }
     @PostMapping("/logout")
-    public void logout(@RequestParam("email") String email){
-        userService.logout(email);
+    public void logout(@RequestBody User user){
+        userService.logout(user.getEmail());
     }
     @GetMapping("/view_All")
     public List<User> viewAll(){
@@ -41,7 +41,6 @@ public class UserController {
     public ResponseEntity<String> handle(Exception exception){
         return ResponseEntity.status(HttpStatus.OK)
                 .body(exception.getMessage());
-
     }
 
 }
