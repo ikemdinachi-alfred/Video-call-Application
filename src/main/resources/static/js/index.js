@@ -5,6 +5,7 @@ function loadAndDisplayUsers() {
      window.location = 'login.html';
      return;
  }
+
  const userListElement = document.getElementById('userList');
  userListElement.innerHTML = 'Loading...';
  fetch('https://localhost:8080/api//v1/users' )

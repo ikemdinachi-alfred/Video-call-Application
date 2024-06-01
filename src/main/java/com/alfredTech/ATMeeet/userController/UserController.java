@@ -31,6 +31,8 @@ public class UserController {
     public void logout(@RequestBody User user){
         userService.logout(user.getEmail());
     }
+
+
     @GetMapping("/view_All")
     public List<User> viewAll(){
         return userService.viewAllUsers();
