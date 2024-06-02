@@ -2,9 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Registration page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<div class="container">
+    <div class="social-icons">
+        <h2>Join Us</h2>
+        <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-github"></i></a>
+    </div>
+
+    <div class="login-form">
+        <h2>Register</h2>
+        <form id="registrationForm">
+            <label for="username"> Username: </label>
+            <input type="text" id="username" placeholder="Enter Your Username" required>
+
+            <label for="email"> Email: </label>
+            <input type="text" id="email" placeholder="Enter Your Email" required>
+
+            <label for="password"> Password: </label>
+            <input type="text" id="password" placeholder="Enter Your Password" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html" > Login </a></p>
+
+    </div>
+</div>
 
 </body>
+<style>
+    body{
+        margin:  0;
+        padding: 0;
+        font-family: Arial,sans-serif;
+        background-color: paleturquoise;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .login-form,
+    .social-icons{
+        background-color: white;
+        padding: 40px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.5);
+    }
+    .social-icons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 20px;
+        height: fit-content;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form input[type="email"],
+    .login-form button{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        gap: 20px;
+        font-size: 20px;
+    }
+    .login-form button{
+        margin-top: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .login-form >p{
+        margin-top: 20px;
+        font-size: 25px;
+        font-family: "fantasy";
+    }
+    .login-form  a{
+        color: #4CAF50;
+        text-decoration: none;
+    }
+    .login-form label{
+        font-size: medium;
+        font-family: "system-ui"
+    }
+    .social-icons h2,
+    .login-form h2{
+        margin-bottom: 20px;
+        color: blue;
+    }
+    .social-icons a{
+        display: inline-block;
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: red;
+        text-decoration: none;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+    }
+
+
+</style>
 </html>
